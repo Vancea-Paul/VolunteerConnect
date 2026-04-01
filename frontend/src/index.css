@@ -1,0 +1,49 @@
+:root {
+  --bg: #f4efe7;
+  --bg-accent: #e1f0ea;
+  --ink: #1f2a2e;
+  --muted: #5c6a70;
+  --card: #fffaf2;
+  --border: #d9d2c7;
+  --accent: #1f6f8b;
+  --accent-strong: #165667;
+  --accent-soft: rgba(31, 111, 139, 0.15);
+  --shadow: 0 20px 45px rgba(31, 42, 46, 0.18);
+  --shadow-soft: 0 18px 35px rgba(31, 42, 46, 0.08);
+  --shell-bg: #f2ede4;
+  --nav-bg: #f7f3ea;
+  --nav-ink: #1b2a2f;
+  --nav-muted: #6d7a80;
+  --nav-icon: #e9e3d9;
+  --nav-border: #d6cdc2;
+  --nav-hover: rgba(31, 111, 139, 0.08);
+  --panel-accent: #f9f1e5;
+  --chip-bg: rgba(31, 111, 139, 0.12);
+  --font-body: 'Trebuchet MS', 'Gill Sans', 'Verdana', sans-serif;
+  --font-display: 'Trebuchet MS', 'Gill Sans', 'Verdana', sans-serif;
+
+  font: 16px/1.5 var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at top left, var(--bg-accent), transparent 55%),
+    radial-gradient(circle at 80% 20%, #f8f0e0, transparent 45%),
+    radial-gradient(circle at bottom right, #f3ebe1, transparent 50%),
+    var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+}

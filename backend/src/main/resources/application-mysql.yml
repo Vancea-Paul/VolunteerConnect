@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/VolunteerConnect
+    username: root
+    password: Darksido1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+app:
+  admin:
+    username: admin
+    email: admin@volunteerconnect.local
+    password: GreenConnect
