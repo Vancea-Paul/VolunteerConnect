@@ -8,11 +8,17 @@ const iconPaths = {
   chat: 'M4 6h16v8H7l-3 3V6z',
   projects: 'M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z',
   tasks: 'M4 7h10M4 12h16M4 17h12',
+  task: 'M5 12l4 4L19 6',
+  hr: 'M12 20s-7-4.6-7-10a4 4 0 017-2.8A4 4 0 0119 10c0 5.4-7 10-7 10z',
+  system: 'M12 5v14M5 12h14M7.8 7.8l8.4 8.4M16.2 7.8l-8.4 8.4',
   calendar: 'M7 4v3M17 4v3M4 9h16M6 12h4M6 16h4M12 12h4M12 16h4',
   stats: 'M5 19V9m5 10V5m5 14v-7m5 7v-4',
   support: 'M12 4a6 6 0 016 6v3a6 6 0 01-12 0V10a6 6 0 016-6z',
   volunteers: 'M6 7a3 3 0 116 0 3 3 0 01-6 0zm9 3a3 3 0 113 3 3 3 0 01-3-3zM4 18a4 4 0 018 0M14 18a4 4 0 018 0',
   recruitment: 'M6 7a3 3 0 116 0 3 3 0 01-6 0zm9 3a3 3 0 113 3 3 3 0 01-3-3zM4 18a4 4 0 018 0M14 18a4 4 0 018 0',
+  mail: 'M4 7l8 6 8-6M4 7h16v10H4z',
+  lock: 'M8 10V8a4 4 0 118 0v2M7 10h10v10H7z',
+  spark: 'M12 4l1.5 4.5L18 10l-4.5 1.5L12 16l-1.5-4.5L6 10l4.5-1.5L12 4z',
   bell: 'M12 4a4 4 0 014 4v3l2 3H6l2-3V8a4 4 0 014-4zM9 17a3 3 0 006 0',
   menu: 'M4 7h16M4 12h16M4 17h16',
   collapse: 'M9 6l-3 3 3 3M15 6l3 3-3 3',
@@ -306,13 +312,13 @@ function App() {
   if (!user) {
     return (
       <div className="page">
-        <header className="brand">
+        <header className="brand login-brand">
           <div className="brand-mark">
             <img src={logo} alt="VolunteerConnect logo" />
           </div>
-          <div>
+          <div className="brand-copy">
             <p className="brand-name">VolunteerConnect</p>
-            <p className="brand-tag">Community platform starter</p>
+            <p className="brand-tag">Greentin collaboration workspace</p>
           </div>
         </header>
 
@@ -323,34 +329,50 @@ function App() {
           <form className="login-form" onSubmit={handleSubmit}>
             <label className="field">
               <span>Username</span>
-              <input
-                name="username"
-                type="text"
-                autoComplete="username"
-                value={form.username}
-                onChange={handleChange}
-                placeholder="jane.doe"
-                required
-              />
+              <div className="input-shell">
+                <span className="input-icon" aria-hidden="true"><Icon name="mail" /></span>
+                <input
+                  name="username"
+                  type="text"
+                  autoComplete="username"
+                  value={form.username}
+                  onChange={handleChange}
+                  placeholder="jane.doe"
+                  required
+                />
+              </div>
             </label>
 
             <label className="field">
               <span>Password</span>
-              <input
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                value={form.password}
-                onChange={handleChange}
-                placeholder="Enter your password"
-                required
-              />
+              <div className="input-shell">
+                <span className="input-icon" aria-hidden="true"><Icon name="lock" /></span>
+                <input
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
             </label>
+
+            <div className="login-links">
+              <button className="text-link" type="button">Forgot password?</button>
+              <button className="text-link" type="button">Sign up</button>
+            </div>
 
             <button className="submit" type="submit" disabled={isLoading}>
               {isLoading ? 'Signing in...' : 'Sign in'}
             </button>
           </form>
+
+          <div className="auth-options">
+            <button className="ghost auth" type="button">Biometric</button>
+            <button className="ghost auth" type="button">SSO Access</button>
+          </div>
 
           {status.message ? (
             <p className={`status ${status.state}`}>{status.message}</p>
@@ -421,31 +443,53 @@ function App() {
 
   const quickCards = [
     {
-      title: 'Leave Balance',
-      value: 'Days used 1',
-      detail: 'Remaining 1 (out of 2/month)',
+      title: 'Leave Window',
+      value: '14 Days',
+      detail: 'Current allocation for field volunteers',
+      icon: 'calendar',
     },
     {
-      title: 'Next Deadline',
-      value: 'Community Outreach Plan',
-      detail: 'Due in 4 days',
+      title: 'Next Milestone',
+      value: '28 Oct',
+      detail: 'Community outreach report handoff',
+      icon: 'task',
     },
     {
-      title: 'Upcoming Events',
-      value: 'School Visit - East Campus',
-      detail: 'Tomorrow at 10:30',
+      title: 'Volunteer Pulse',
+      value: '86%',
+      detail: 'On-time completion across all teams',
+      icon: 'stats',
     },
     {
-      title: 'Active Tickets',
-      value: '2 open requests',
-      detail: 'Last update 3 hours ago',
+      title: 'Open Tickets',
+      value: '06',
+      detail: '2 escalated and 4 under review',
+      icon: 'support',
     },
   ]
 
   const recentActivity = [
-    'Reviewed task board updates for the week.',
-    'Added two volunteers to the Outreach project.',
-    'Submitted a maintenance request for projector cables.',
+    {
+      type: 'Task',
+      icon: 'task',
+      avatar: 'MS',
+      text: 'Maria synced the school visit checklist with transport timelines.',
+      time: '12 minutes ago',
+    },
+    {
+      type: 'HR',
+      icon: 'hr',
+      avatar: 'AV',
+      text: 'Andrei approved two volunteer onboarding requests for GreenLab.',
+      time: '45 minutes ago',
+    },
+    {
+      type: 'System',
+      icon: 'system',
+      avatar: 'VC',
+      text: 'Platform maintenance completed and all workspace sessions restored.',
+      time: '2 hours ago',
+    },
   ]
 
   const formatDateTime = (value) => {
@@ -731,6 +775,7 @@ function App() {
             <section className="quick-glance">
               {quickCards.map((card) => (
                 <article className="glance-card" key={card.title}>
+                  <span className="glance-bg-icon" aria-hidden="true"><Icon name={card.icon} /></span>
                   <p className="glance-title">{card.title}</p>
                   <h3>{card.value}</h3>
                   <p className="glance-detail">{card.detail}</p>
@@ -746,7 +791,15 @@ function App() {
                 </div>
                 <ul className="activity">
                   {recentActivity.map((item, index) => (
-                    <li key={`${item}-${index}`}>{item}</li>
+                    <li key={`${item.text}-${index}`}>
+                      <span className="activity-icon" aria-hidden="true"><Icon name={item.icon} /></span>
+                      <span className="activity-avatar">{item.avatar}</span>
+                      <span className="activity-copy">
+                        <strong>{item.type}</strong>
+                        <span>{item.text}</span>
+                      </span>
+                      <small>{item.time}</small>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -829,9 +882,13 @@ function App() {
             </section>
 
             <section className="canvas">
+              <div className="session-starter-visual" aria-hidden="true">
+                <span><Icon name="spark" /></span>
+              </div>
               <div>
                 <h2>Workspace</h2>
-                <p>Drop future widgets and analytics here.</p>
+                <p>No active workspace sessions.</p>
+                <button className="primary" type="button">Explore Templates</button>
               </div>
             </section>
           </>

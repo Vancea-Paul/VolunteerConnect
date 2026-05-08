@@ -1,26 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #f4efe7;
-  --bg-accent: #e1f0ea;
-  --ink: #1f2a2e;
-  --muted: #5c6a70;
-  --card: #fffaf2;
-  --border: #d9d2c7;
-  --accent: #1f6f8b;
-  --accent-strong: #165667;
-  --accent-soft: rgba(31, 111, 139, 0.15);
-  --shadow: 0 20px 45px rgba(31, 42, 46, 0.18);
-  --shadow-soft: 0 18px 35px rgba(31, 42, 46, 0.08);
-  --shell-bg: #f2ede4;
-  --nav-bg: #f7f3ea;
-  --nav-ink: #1b2a2f;
-  --nav-muted: #6d7a80;
-  --nav-icon: #e9e3d9;
-  --nav-border: #d6cdc2;
-  --nav-hover: rgba(31, 111, 139, 0.08);
-  --panel-accent: #f9f1e5;
-  --chip-bg: rgba(31, 111, 139, 0.12);
-  --font-body: 'Trebuchet MS', 'Gill Sans', 'Verdana', sans-serif;
-  --font-display: 'Trebuchet MS', 'Gill Sans', 'Verdana', sans-serif;
+  --bg: #fdf9f1;
+  --bg-accent: #eef6ee;
+  --ink: #163325;
+  --muted: #5a685f;
+  --card: #fffdf8;
+  --border: rgba(45, 138, 86, 0.15);
+  --accent: #2d8a56;
+  --accent-strong: #1f6d42;
+  --accent-soft: rgba(45, 138, 86, 0.16);
+  --shadow: 0 22px 46px rgba(30, 65, 41, 0.14);
+  --shadow-soft: 0 14px 30px rgba(30, 65, 41, 0.08);
+  --shell-bg: #f9f5ec;
+  --nav-bg: #fbf8f0;
+  --nav-ink: #173528;
+  --nav-muted: #647266;
+  --nav-icon: #ebf3e7;
+  --nav-border: rgba(45, 138, 86, 0.12);
+  --nav-hover: rgba(45, 138, 86, 0.09);
+  --panel-accent: #f4f8ef;
+  --chip-bg: rgba(45, 138, 86, 0.16);
+  --font-body: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
 
   font: 16px/1.5 var(--font-body);
   color: var(--ink);
@@ -39,8 +41,8 @@ body {
   min-height: 100svh;
   background:
     radial-gradient(circle at top left, var(--bg-accent), transparent 55%),
-    radial-gradient(circle at 80% 20%, #f8f0e0, transparent 45%),
-    radial-gradient(circle at bottom right, #f3ebe1, transparent 50%),
+    radial-gradient(circle at 80% 20%, #eef4df, transparent 46%),
+    radial-gradient(circle at bottom right, #f5efdf, transparent 50%),
     var(--bg);
 }
 
